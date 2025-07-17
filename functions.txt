@@ -1,0 +1,29 @@
+C:\Users\DELL>terraform console
+> max(11,55,77)
+77
+==
+> min(11,77,55)
+11
+==
+> upper("kedar")
+"KEDAR"
+==
+> lower("KEDARNATH")
+"kedarnath"
+==
+> endswith("kedarnath","nath")
+true
+==
+> startswith("kedarnath","kedar")
+true
+==
+> join("-",["kedar","nath","anubolu"])
+"kedar-nath-anubolu"
+===
+> split("-","kedar-nath-Anubolu")
+tolist([
+  "kedar",
+  "nath",
+  "Anubolu",
+])
+====

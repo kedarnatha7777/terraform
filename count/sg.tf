@@ -1,8 +1,15 @@
 resource "aws_instance" "db" {
+  count = length(var.instance_name)
   ami           = var.ami_id
-  instance_type =  var.instance_type
-  vpc_security_group_ids =  [aws_security_group.allow_ssh.id]
-  tags = var.tags
+  instance_type = var.instance_name[count.index] == "db" ? "t3.small" : "t3.micro"
+  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
+  tags =  merge(
+    var.common_tag,
+    {
+      Name = var.instance_name[count.index]
+      module =var.instance_name[count.index]
+    }
+  )
 }
 
 resource "aws_security_group" "allow_ssh" {
@@ -28,3 +35,4 @@ resource "aws_security_group" "allow_ssh" {
   }
 
 }
+

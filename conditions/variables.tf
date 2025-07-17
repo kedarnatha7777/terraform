@@ -8,6 +8,15 @@ variable "instance_type"{
     default = "t3.micro"
 }
 
+variable "instance_name" {
+    type = string 
+    default = "db"
+}
+
+variable "sg_id" {
+    type = list 
+    default = [ "aws_security_group.allow_ssh.id" ]
+}
 
 variable "tags" {
     type = map
@@ -15,13 +24,9 @@ variable "tags" {
         name = "db"
         module = "db"
         env = "dev"
-        project = "expense "
-        terrform = true 
         
     }
 }
-
-
 
 variable "sg_name" {
     default = "allow_ssh"
@@ -44,7 +49,8 @@ variable "protocol" {
 }
 
 variable "cidr_blocks" {
-    type = list 
+    type = list(string)
+    
     default = [ "0.0.0.0/0" ]
 }
 

@@ -8,20 +8,21 @@ variable "instance_type"{
     default = "t3.micro"
 }
 
-
-variable "tags" {
-    type = map
-    default ={
-        name = "db"
-        module = "db"
-        env = "dev"
-        project = "expense "
-        terrform = true 
-        
-    }
+variable "instance_name" {
+    type = list 
+    default = [ "db", "backend", "frontend" ]
 }
 
 
+
+variable "common_tag" {
+    type = map
+    default = {
+        environment = "dev"
+        project = "expense"
+        terrform = true 
+    }
+}
 
 variable "sg_name" {
     default = "allow_ssh"
