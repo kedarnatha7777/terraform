@@ -29,3 +29,6 @@ tolist([
 ====
 
 concat 
+
+====
+count and count.index are not worked in locals 
