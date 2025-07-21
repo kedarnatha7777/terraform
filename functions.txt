@@ -32,3 +32,6 @@ concat
 
 ====
 count and count.index are not worked in locals 
+count is used for the _> List 
+
+for each is used fot the map 
